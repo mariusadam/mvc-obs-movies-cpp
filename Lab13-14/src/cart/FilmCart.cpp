@@ -4,17 +4,18 @@
 #include <algorithm>
 
 void FilmCart::add(const Film& film) {
-	if (__isInRepo(film) == false) {
+	if (this->__isInRepo(film) == false) {
 		throw FilmException("Error : cannot add to cart unexistent movie!");
 	}
-	if (__isInCart(film) == true) {
+	if (this->__isInCart(film) == true) {
 		throw FilmException("Error : movie already in the cart!");
 	}
-	__movies.push_back(film);
+	this->__movies.push_back(film);
+	this->notify();
 }
 
 bool FilmCart::__isInRepo(const Film& film) const {
-	const std::vector<Film>& alls = __repo.getAll();
+	const std::vector<Film>& alls = this->__repo.getAll();
 	auto filmIt = std::find(alls.begin(), alls.end(), film);
 	return (filmIt == alls.end() ? false : true);
 }
@@ -31,12 +32,13 @@ const std::vector<Film> FilmCart::getAll() const {
 void FilmCart::fillRandom(const int howMany) {
 	this->clear();
 	int seed = std::chrono::system_clock::now().time_since_epoch().count();
-	std::vector<Film> all = __repo.getAll();
+	std::vector<Film>& all = this->__repo.getAll();
 	std::shuffle(all.begin(), all.end(), std::default_random_engine(seed));
-	while (__movies.size() < howMany && all.size() > 0) {
-		__movies.push_back(all.back());
+	while (this->__movies.size() < howMany && all.size() > 0) {
+		this->__movies.push_back(all.back());
 		all.pop_back();
 	}
+	this->notify();
 }
 
 void FilmCart::del(const std::string& title) {
@@ -46,4 +48,5 @@ void FilmCart::del(const std::string& title) {
 		throw RepositoryException("Error in cart: trying to delete unexistent film!");
 	}
 	this->__movies.erase(filmIt);
+	this->notify();
 }

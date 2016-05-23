@@ -3,10 +3,13 @@
 
 #include "../domain/Film.h"
 #include "../repository/repository.h"
+#include "../observer/observer.h"
 #include <vector>
 #include <fstream>
 
-class FilmCart {
+//Extinde observable, astfel cei interesati se notifica in caz ca s-a schimbat ceva la Cos
+
+class FilmCart: public Observable{
 protected:
 	std::vector<Film> __movies;
 	const Repository& __repo;
@@ -20,7 +23,8 @@ public:
 	void fillRandom(const int howMany);
 
 	void clear() {
-		__movies.clear();
+		this->__movies.clear();
+		this->notify();
 	}
 
 	const std::vector<Film> getAll() const;
