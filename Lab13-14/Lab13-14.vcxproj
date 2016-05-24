@@ -161,6 +161,7 @@
     <ClCompile Include="src\domain\Film.cpp" />
     <ClCompile Include="src\domain\FilmValidator.cpp" />
     <ClCompile Include="src\gui\app.cpp" />
+    <ClCompile Include="src\gui\cartwithtablegui.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\repository\filerepository.cpp" />
     <ClCompile Include="src\repository\repository.cpp" />
@@ -192,6 +193,8 @@
     <ClInclude Include="src\controller\Undo.h" />
     <ClInclude Include="src\domain\Film.h" />
     <ClInclude Include="src\domain\FilmValidator.h" />
+    <ClInclude Include="src\gui\cartwithtablegui.h" />
+    <ClInclude Include="src\model\moviestablemodel.h" />
     <ClInclude Include="src\observer\observer.h" />
     <ClInclude Include="src\repository\filerepository.h" />
     <ClInclude Include="src\repository\repository.h" />
@@ -233,6 +236,12 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Files\exported\test2.html" />
+    <None Include="Files\exported\test66.html" />
+    <None Include="Files\exported\test666.html" />
+    <None Include="Files\repo\data.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

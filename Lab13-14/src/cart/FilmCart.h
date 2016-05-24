@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CART_FILM_CART_H_
 #define CART_FILM_CART_H
 
@@ -27,7 +28,7 @@ public:
 		this->notify();
 	}
 
-	const std::vector<Film> getAll() const;
+	std::vector<Film> getAll() const;
 	virtual void writeToFile(const std::string& fileName) = 0;
 };
 

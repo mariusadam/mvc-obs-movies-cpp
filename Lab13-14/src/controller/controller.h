@@ -26,6 +26,10 @@ public:
 	}
 	Controller(Controller& other) = delete;
 
+	FilmCart* getCartPtr() const {
+		return &(this->__cart);
+	}
+
 	void undo();
 
 	Film createFilm(const std::string& title, const std::string& gen, const int& releaseYear, const std::string& mainActor) const;

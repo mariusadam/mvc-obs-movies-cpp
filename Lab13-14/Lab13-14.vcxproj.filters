@@ -68,6 +68,9 @@
     <ClCompile Include="src\cart\FilmCart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui\cartwithtablegui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="app.ui">
@@ -108,5 +111,17 @@
     <ClInclude Include="src\observer\observer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\gui\cartwithtablegui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model\moviestablemodel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Files\exported\test2.html" />
+    <None Include="Files\exported\test66.html" />
+    <None Include="Files\exported\test666.html" />
+    <None Include="Files\repo\data.csv" />
   </ItemGroup>
 </Project>

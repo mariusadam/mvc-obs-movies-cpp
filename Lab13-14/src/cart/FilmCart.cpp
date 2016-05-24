@@ -1,4 +1,4 @@
-#include "FilmCart.h"
+#include "filmcart.h"
 #include <chrono>
 #include <random>
 #include <algorithm>
@@ -25,7 +25,7 @@ bool FilmCart::__isInCart(const Film& film) const {
 	return (filmIt == __movies.end() ? false : true);
 }
 
-const std::vector<Film> FilmCart::getAll() const {
+std::vector<Film> FilmCart::getAll() const {
 	return __movies;
 }
 
