@@ -234,4 +234,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
-*.Files/exported/*
+
+/Lab13-14/Files/exported/*
