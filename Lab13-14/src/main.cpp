@@ -22,5 +22,6 @@ int main(int argc, char *argv[]) {
 	QApplication a(argc, argv);
 	App gui{ ctrl };
 	gui.show();
+	//_CrtDumpMemoryLeaks();
 	return a.exec();
 }

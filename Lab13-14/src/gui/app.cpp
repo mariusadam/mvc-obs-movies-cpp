@@ -13,7 +13,7 @@
 void App::__initMainWidget() {
 	QGridLayout* layoutMain = new QGridLayout;
 
-	this->__widgetMain = new QWidget;
+	this->__widgetMain = new QWidget(this);
 	__widgetMain->setLayout(layoutMain);
 
 	QWidget* widgetMovieListOperations = new QWidget;
@@ -32,6 +32,8 @@ void App::__initMainWidget() {
 	layoutMoviesListOperations->addWidget(this->__addToCartButton);
 	this->__manageCartButton = new QPushButton("Open cart window");
 	layoutMoviesListOperations->addWidget(this->__manageCartButton);
+	this->__openCartCircles = new QPushButton("View as circles");
+	layoutMoviesListOperations->addWidget(this->__openCartCircles);
 
 	//form pentru detalii
 	QWidget* widgetDetailsMovie = new QWidget;
@@ -106,6 +108,7 @@ void App::__connectMainWidgetSignalsSlots() {
 	QObject::connect(__quitButton, &QPushButton::clicked, this, &App::__on_quitButton_clicked);
 	QObject::connect(__generateRandomButton, &QPushButton::clicked, this, &App::__on_generateRandomButton_clicked);
 	QObject::connect(__manageCartButton, &QPushButton::clicked, this, &App::__on_manageCartButton_clicked);
+	QObject::connect(__openCartCircles, &QPushButton::clicked, this, &App::__on_openCartCircles_button);
 	QObject::connect(__moviesTableView, &QTableView::clicked, this, &App::__on_selectedTableCell_clicked);
 	QObject::connect(__moviesTableModel, &QAbstractTableModel::dataChanged, this, &App::__on_selectedTableCell_clicked);
 }
@@ -347,9 +350,15 @@ void App::__on_manageCartButton_clicked() {
 
 	this->__widgetCart->show();
 	*/
-	FilmCart* cart = this->__ctrl.getCartPtr();
+	std::shared_ptr<FilmCart> cart{ this->__ctrl.getCartPtr() };
 	this->__widgetCart = new CartWithTableGUI{ cart };
 	this->__widgetCart->show();
+}
+
+void App::__on_openCartCircles_button(){
+	std::shared_ptr<FilmCart> cart{ this->__ctrl.getCartPtr() };
+	this->__widgetCartCircles = new CartCirclesGUI{ cart };
+	this->__widgetCartCircles->show();
 }
 
 void App::__on_quitButton_clicked() {

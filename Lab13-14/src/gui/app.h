@@ -25,6 +25,7 @@
 #include "../Model/MoviesTableModel.h"
 #include "../controller/controller.h"
 #include "cartwithtablegui.h"
+#include "cartcirclesgui.h"
 
 
 class App : public QMainWindow
@@ -37,6 +38,7 @@ private:
 	QTabWidget* __tabWidget;
 	QWidget* __widgetMain;
 	CartWithTableGUI* __widgetCart;
+	CartCirclesGUI* __widgetCartCircles;
 	QTime __timeStamp;
 	QTableView* __moviesTableView = new QTableView;
 	QTableView* __cartTableView = new QTableView;
@@ -56,6 +58,7 @@ private:
 	QPushButton* __quitCartButton;
 	QPushButton* __generateRandomButton;
 	QPushButton* __manageCartButton;
+	QPushButton* __openCartCircles;
 	QPushButton* __addToCartButton;
 	QPushButton* __undoButton;
 	QComboBox* __sortByComboBox;
@@ -91,6 +94,7 @@ private:
 	void __on_sortButton_clicked();
 	void __on_addToCartButton_clicked();
 	void __on_manageCartButton_clicked();
+	void __on_openCartCircles_button();
 
 public:
 	App(Controller& __ctrl) : __ctrl{ __ctrl } {

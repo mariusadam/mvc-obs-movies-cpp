@@ -27,10 +27,11 @@
 #include "../observer/observer.h"
 #include "../model/moviestablemodel.h"
 #include "../cart/filmcart.h"
+#include <memory>
 
 class CartWithTableGUI : public QWidget, public Observer {
 private:
-	FilmCart* __cart;
+	std::shared_ptr<FilmCart> __cart;
 
 	QTableView* __cartTableView;
 	MoviesTableModel* __cartTableModel;
@@ -58,10 +59,11 @@ private:
 	void __on_deleteFromCartButton_clicked();
 	void __on_clearCartButton_clicked();
 	void __on_exportCartButton_clicked();
+	void __on_quitCartButton_clicked();
 
 public:
 
-	CartWithTableGUI(FilmCart* cart) : __cart{ cart } {
+	CartWithTableGUI(std::shared_ptr<FilmCart> cart) : __cart{ cart } {
 		this->__initComponents();
 		this->__connectCartWidgetSignalsSlots();
 	}

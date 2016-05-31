@@ -71,6 +71,9 @@
     <ClCompile Include="src\gui\cartwithtablegui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui\cartcirclesgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="app.ui">
@@ -115,6 +118,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\model\moviestablemodel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\cartcirclesgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

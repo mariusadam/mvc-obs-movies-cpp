@@ -22,7 +22,9 @@ public:
 	void add(const Film& film);
 	void del(const std::string& title);
 	void fillRandom(const int howMany);
-
+	const int size() const{
+		return this->__movies.size();
+	}
 	void clear() {
 		this->__movies.clear();
 		this->notify();

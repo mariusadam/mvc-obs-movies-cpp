@@ -161,6 +161,7 @@
     <ClCompile Include="src\domain\Film.cpp" />
     <ClCompile Include="src\domain\FilmValidator.cpp" />
     <ClCompile Include="src\gui\app.cpp" />
+    <ClCompile Include="src\gui\cartcirclesgui.cpp" />
     <ClCompile Include="src\gui\cartwithtablegui.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\repository\filerepository.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="src\controller\Undo.h" />
     <ClInclude Include="src\domain\Film.h" />
     <ClInclude Include="src\domain\FilmValidator.h" />
+    <ClInclude Include="src\gui\cartcirclesgui.h" />
     <ClInclude Include="src\gui\cartwithtablegui.h" />
     <ClInclude Include="src\model\moviestablemodel.h" />
     <ClInclude Include="src\observer\observer.h" />

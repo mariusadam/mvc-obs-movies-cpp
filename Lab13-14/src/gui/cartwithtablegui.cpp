@@ -53,6 +53,7 @@ void CartWithTableGUI::__connectCartWidgetSignalsSlots() {
 	QObject::connect(__fillCartRandomButton, &QPushButton::clicked, this, &CartWithTableGUI::__on_fillCartRandomButton_clicked);
 	QObject::connect(__deleteFromCartButton, &QPushButton::clicked, this, &CartWithTableGUI::__on_deleteFromCartButton_clicked);
 	QObject::connect(__clearCartButton, &QPushButton::clicked, this, &CartWithTableGUI::__on_clearCartButton_clicked);
+	QObject::connect(__quitCartButton, &QPushButton::clicked, this, &CartWithTableGUI::__on_quitCartButton_clicked);
 	QObject::connect(__exportCartButton, &QPushButton::clicked, this, &CartWithTableGUI::__on_exportCartButton_clicked);
 	QObject::connect(__cartTableView, &QTableView::clicked, this, [&](const QModelIndex& index) {
 		if (index.isValid() == false) {
@@ -106,6 +107,10 @@ void CartWithTableGUI::__on_exportCartButton_clicked() {
 	}
 	this->__cart->writeToFile(fileName);
 	this->__displayError("Exported as html!");
+}
+
+void CartWithTableGUI::__on_quitCartButton_clicked() {
+	this->close();
 }
 
 void CartWithTableGUI::__reloadTable(const std::vector<Film>& movies) {
